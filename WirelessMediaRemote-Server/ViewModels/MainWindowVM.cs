@@ -42,7 +42,13 @@ public partial class MainWindowVM : BaseWindowVM
     [RelayCommand(CanExecute = nameof(CanRemoveSourceDirectory))]
     private void RemoveSourceDirectory()
     {
-        throw new NotImplementedException();
+        if (SourceDirectories.Count < 0)
+        {
+            return;
+        }
+
+        SourceDirectories.RemoveAt(SelectedSourceDirectoryIdx);
+        SelectedSourceDirectoryIdx = -1;
     }
     private bool CanRemoveSourceDirectory()
     {
