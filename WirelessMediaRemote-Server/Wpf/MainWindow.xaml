@@ -5,8 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Wireless Media Remote" Height="300" Width="400"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock>Source Directories</TextBlock>
+            <Separator Background="Transparent"/>
 
+            <ScrollViewer Height="100"
+                          VerticalScrollBarVisibility="Auto"
+                          BorderThickness="1"
+                          BorderBrush="DarkGray">
+                <ListView ItemsSource="{Binding SourceDirectories}"
+                          SelectedIndex="{Binding SelectedSourceDirectoryIdx}"/>
+            </ScrollViewer>
+            <Separator Background="Transparent"/>
+
+            <Grid>
+                <Button Width="Auto"
+                        HorizontalAlignment="Left"
+                        Command="{Binding AddSourceDirectoryCommand}">
+                    Add Source Directory
+                </Button>
+
+                <Button Width="Auto"
+                        HorizontalAlignment="Right"
+                        Command="{Binding RemoveSourceDirectoryCommand}">
+                    Remove Selected
+                </Button>
+            </Grid>
+            <Separator Background="Transparent"
+                       Height="50"/>
+        </StackPanel>
+        <Grid Height="Auto"
+              Width="Auto"
+              VerticalAlignment="Bottom">
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Left">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ServerListening}" Value="False">
+                                <Setter Property="Text" Value="Server status: not accepting connections"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ServerListening}" Value="True">
+                                <Setter Property="Text" Value="Server status: waiting for connection"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Button Height="40"
+                    Width="100"
+                    HorizontalAlignment="Right"
+                    Command="{Binding ToggleServerListeningStateCommand}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ServerListening}" Value="False">
+                                <Setter Property="Content" Value="Start"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ServerListening}" Value="True">
+                                <Setter Property="Content" Value="Stop"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+        </Grid>
     </Grid>
 </Window>
