@@ -17,8 +17,11 @@ public partial class MainWindowVM : BaseWindowVM
     [ObservableProperty]
     private bool _serverListening = false;
 
-    public MainWindowVM(IWindowService winService) : base(winService)
+    private readonly IServiceGroup _serviceGroup;
+
+    public MainWindowVM(IServiceGroup ServiceGroup) : base(ServiceGroup.WindowService)
     {
+        _serviceGroup = ServiceGroup;
     }
 
     [RelayCommand]

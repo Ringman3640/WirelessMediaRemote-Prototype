@@ -9,13 +9,13 @@ namespace MainApp;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>
-public partial class App : Application
+public partial class App : Application, IServiceGroup
 {
-    private WindowServicer _windowServicer;
+    public IWindowService WindowService { get; }
 
     public App()
     {
-        _windowServicer = new();
+        WindowService = new WindowServicer();
     }
 
     protected override void OnStartup(StartupEventArgs e)
@@ -23,7 +23,7 @@ public partial class App : Application
         base.OnStartup(e);
 
         MainWindow mainWindow = new();
-        MainWindowVM mainWindowVM = new(_windowServicer);
+        MainWindowVM mainWindowVM = new(this);
 
         mainWindow.DataContext = mainWindowVM;
         mainWindow.Show();
