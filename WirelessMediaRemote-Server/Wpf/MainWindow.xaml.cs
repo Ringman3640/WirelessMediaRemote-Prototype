@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MainApp
+namespace Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
