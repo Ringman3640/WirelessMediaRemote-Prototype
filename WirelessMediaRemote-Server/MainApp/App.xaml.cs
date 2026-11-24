@@ -2,6 +2,7 @@
 using Wpf;
 using ViewModels;
 using ViewModels.Services;
+using Microsoft.Win32;
 
 namespace MainApp;
 
@@ -42,12 +43,24 @@ public partial class App : Application
 
         public string GetFolder()
         {
-            throw new NotImplementedException();
+            OpenFolderDialog dialog = new();
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == true)
+            {
+                return dialog.FolderName;
+            }
+            return "";
         }
 
         public string[] GetFolders()
         {
-            throw new NotImplementedException();
+            OpenFolderDialog dialog = new();
+            dialog.Multiselect = true;
+            if (dialog.ShowDialog() == true)
+            {
+                return dialog.FolderNames;
+            }
+            return [];
         }
     }
 }
