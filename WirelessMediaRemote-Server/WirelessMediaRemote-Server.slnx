@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="MainApp/MainApp.csproj" />
+  <Project Path="ViewModels/ViewModels.csproj" Id="45ff84c1-972a-4108-981c-d3c045ab8d75" />
   <Project Path="Wpf/Wpf.csproj" Id="ca9b2a32-94cc-4107-b5cb-5afa5c183721" />
 </Solution>
