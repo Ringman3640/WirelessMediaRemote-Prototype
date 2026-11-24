@@ -41,7 +41,7 @@ public partial class App : Application
             throw new NotImplementedException();
         }
 
-        public string GetFolder()
+        public string? GetFolder()
         {
             OpenFolderDialog dialog = new();
             dialog.Multiselect = false;
@@ -49,10 +49,10 @@ public partial class App : Application
             {
                 return dialog.FolderName;
             }
-            return "";
+            return null;
         }
 
-        public string[] GetFolders()
+        public string[]? GetFolders()
         {
             OpenFolderDialog dialog = new();
             dialog.Multiselect = true;
@@ -60,7 +60,7 @@ public partial class App : Application
             {
                 return dialog.FolderNames;
             }
-            return [];
+            return null;
         }
     }
 }

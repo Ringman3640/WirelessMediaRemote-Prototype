@@ -6,7 +6,7 @@ public interface IWindowService
 
     void CloseWindow(BaseWindowVM windowVM);
 
-    string GetFolder();
+    string? GetFolder();
 
-    string[] GetFolders();
+    string[]? GetFolders();
 }
