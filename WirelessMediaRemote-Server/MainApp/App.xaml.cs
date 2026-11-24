@@ -39,5 +39,15 @@ public partial class App : Application
         {
             throw new NotImplementedException();
         }
+
+        public string GetFolder()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string[] GetFolders()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
