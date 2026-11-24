@@ -1,22 +1,43 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using Wpf;
+using ViewModels;
+using ViewModels.Services;
 
-namespace MainApp
+namespace MainApp;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
+    private WindowServicer _windowServicer;
 
-            MainWindow mainWindow = new();
-            mainWindow.Show();
-        }
+    public App()
+    {
+        _windowServicer = new();
     }
 
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        MainWindow mainWindow = new();
+        MainWindowVM mainWindowVM = new(_windowServicer);
+
+        mainWindow.DataContext = mainWindowVM;
+        mainWindow.Show();
+    }
+
+    private class WindowServicer : IWindowService
+    {
+        public void ShowWindow(BaseWindowVM windowVM)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CloseWindow(BaseWindowVM windowVM)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
