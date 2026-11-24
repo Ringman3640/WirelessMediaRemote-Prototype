@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA9B2A32-94CC-4107-B5CB-5AFA5C183721}|Wpf\\Wpf.csproj|c:\\users\\franz\\documents\\code projects\\wirelessmediaremote-prototype\\wirelessmediaremote-server\\wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA9B2A32-94CC-4107-B5CB-5AFA5C183721}|Wpf\\Wpf.csproj|solutionrelative:wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45FF84C1-972A-4108-981C-D3C045AB8D75}|ViewModels\\ViewModels.csproj|c:\\users\\franz\\documents\\code projects\\wirelessmediaremote-prototype\\wirelessmediaremote-server\\viewmodels\\mainwindowvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45FF84C1-972A-4108-981C-D3C045AB8D75}|ViewModels\\ViewModels.csproj|solutionrelative:viewmodels\\mainwindowvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BED17CD-9B62-7A59-718D-876670F2AD95}|MainApp\\MainApp.csproj|c:\\users\\franz\\documents\\code projects\\wirelessmediaremote-prototype\\wirelessmediaremote-server\\mainapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BED17CD-9B62-7A59-718D-876670F2AD95}|MainApp\\MainApp.csproj|solutionrelative:mainapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA9B2A32-94CC-4107-B5CB-5AFA5C183721}|Wpf\\Wpf.csproj|c:\\users\\franz\\documents\\code projects\\wirelessmediaremote-prototype\\wirelessmediaremote-server\\wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA9B2A32-94CC-4107-B5CB-5AFA5C183721}|Wpf\\Wpf.csproj|solutionrelative:wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA9B2A32-94CC-4107-B5CB-5AFA5C183721}|Wpf\\Wpf.csproj|c:\\users\\franz\\documents\\code projects\\wirelessmediaremote-prototype\\wirelessmediaremote-server\\wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\Wpf\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Wpf\\MainWindow.xaml",
@@ -47,13 +43,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindowVM.cs",
               "DocumentMoniker": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\ViewModels\\MainWindowVM.cs",
               "RelativeDocumentMoniker": "ViewModels\\MainWindowVM.cs",
               "ToolTip": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\ViewModels\\MainWindowVM.cs",
               "RelativeToolTip": "ViewModels\\MainWindowVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-24T03:27:08.248Z",
               "EditorCaption": "",
@@ -62,19 +58,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\MainApp\\App.xaml.cs",
-              "RelativeDocumentMoniker": "MainApp\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\MainApp\\App.xaml.cs",
-              "RelativeToolTip": "MainApp\\App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T03:26:17.007Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\Wpf\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Wpf\\MainWindow.xaml.cs",
@@ -87,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "BaseWindowVM.cs",
               "DocumentMoniker": "C:\\Users\\Franz\\Documents\\Code Projects\\WirelessMediaRemote-Prototype\\WirelessMediaRemote-Server\\ViewModels\\BaseWindowVM.cs",
               "RelativeDocumentMoniker": "ViewModels\\BaseWindowVM.cs",

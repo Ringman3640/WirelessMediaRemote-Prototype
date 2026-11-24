@@ -24,7 +24,19 @@ public partial class MainWindowVM : BaseWindowVM
     [RelayCommand]
     private void AddSourceDirectory()
     {
-        throw new NotImplementedException();
+        string[]? paths = _winService.GetFolders();
+        if (paths is null)
+        {
+            return;
+        }
+
+        foreach(string path in paths)
+        {
+            if (!SourceDirectories.Contains(path))
+            {
+                SourceDirectories.Add(path);
+            }
+        }
     }
 
     [RelayCommand(CanExecute = nameof(CanRemoveSourceDirectory))]
