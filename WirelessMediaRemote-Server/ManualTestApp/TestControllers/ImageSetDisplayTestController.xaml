@@ -7,19 +7,35 @@
         mc:Ignorable="d"
         Title="ImageSetDisplayTestController" SizeToContent="WidthAndHeight">
     <Grid Width="Auto" Height="Auto">
-        <StackPanel Orientation="Horizontal"
-                    Margin="30"
-                    Height="30">
-            <Button x:Name="PrevImageButton">
-                Prev Image
-            </Button>
+        <StackPanel Margin="30">
+            <StackPanel Orientation="Horizontal"
+                        Height="30">
+                <Button x:Name="PrevImageButton">
+                    Prev Image
+                </Button>
 
+                <Separator Visibility="Hidden"
+                           Width="40"/>
+
+                <Button x:Name="NextImageButton">
+                    Next Image
+                </Button>
+            </StackPanel>
             <Separator Visibility="Hidden"
-                       Width="40"/>
+                       Height="20"/>
 
-            <Button x:Name="NextImageButton">
-                Next Image
+            <Button x:Name="ChangeImageSetButton"
+                    Height="30">
+                Change Image Set
+            </Button>
+            <Separator Visibility="Hidden"
+                       Height="20"/>
+
+            <Button x:Name="RunToEndButton"
+                    Height="30">
+                Run To End
             </Button>
         </StackPanel>
+        
     </Grid>
 </Window>

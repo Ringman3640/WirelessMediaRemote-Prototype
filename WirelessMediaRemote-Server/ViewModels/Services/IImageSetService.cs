@@ -8,7 +8,7 @@ public interface IImageSetService
 
     int CurrentIndex { get; }
 
-    delegate void OnCurrentIndexChanged(int newIndex);
+    event Action? ImagePathsChanged;
 
-    event OnCurrentIndexChanged? CurrentIndexChanged;
+    event Action? CurrentIndexChanged;
 }

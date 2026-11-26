@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media.Imaging;
 using ViewModels.Services;
 using ViewModels.UserControls;
 

@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:Wpf.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <Image HorizontalAlignment="Center" VerticalAlignment="Center"
+       Source="{Binding CurrentImageBitmap}"/>
 </UserControl>
