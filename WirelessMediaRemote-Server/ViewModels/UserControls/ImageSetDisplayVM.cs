@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using ViewModels.Services;
@@ -7,8 +8,12 @@ namespace ViewModels.UserControls;
 
 public partial class ImageSetDisplayVM : ObservableObject
 {
+
     [ObservableProperty]
     private BitmapImage? _currentImageBitmap = null;
+
+    [ObservableProperty]
+    private bool _currentImageIsAnimated = false;
 
     private readonly IImageSetService _imageSetService;
 
@@ -35,7 +40,15 @@ public partial class ImageSetDisplayVM : ObservableObject
             return;
         }
 
-        CurrentImageBitmap = LoadBitmapImage(imagePaths[currentIndex]);
+        string currentImagePath = imagePaths[currentIndex];
+        CurrentImageBitmap = LoadBitmapImage(currentImagePath);
+
+        if (currentImagePath.EndsWith("gif", StringComparison.CurrentCultureIgnoreCase))
+        {
+            CurrentImageIsAnimated = true;
+            return;
+        }
+        CurrentImageIsAnimated = false;
     }
 
     private BitmapImage? LoadBitmapImage(string imagePath)
@@ -44,7 +57,7 @@ public partial class ImageSetDisplayVM : ObservableObject
         {
             BitmapImage bitmapImage = new();
             bitmapImage.BeginInit();
-            bitmapImage.UriSource = new Uri(imagePath, UriKind.RelativeOrAbsolute);
+            bitmapImage.UriSource = new Uri(Path.GetFullPath(imagePath), UriKind.Absolute);
             bitmapImage.DecodePixelHeight = (int)_displaySize.Height; // Just assume height for now; too fucking lazy to read whole ass image file just to get dimensions
             bitmapImage.EndInit();
             bitmapImage.Freeze();
