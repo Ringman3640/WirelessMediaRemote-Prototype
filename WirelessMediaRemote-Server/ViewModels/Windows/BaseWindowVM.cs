@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ViewModels.Services;
 
-namespace ViewModels;
+namespace ViewModels.Windows;
 
 public abstract partial class BaseWindowVM : ObservableObject
 {

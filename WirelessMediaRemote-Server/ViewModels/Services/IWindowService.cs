@@ -1,4 +1,6 @@
-﻿namespace ViewModels.Services;
+﻿using ViewModels.Windows;
+
+namespace ViewModels.Services;
 
 public interface IWindowService
 {
