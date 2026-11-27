@@ -8,6 +8,8 @@ namespace ViewModels.UserControls;
 
 public partial class ImageSetDisplayVM : ObservableObject
 {
+    [ObservableProperty]
+    private bool _displayActive = false;
 
     [ObservableProperty]
     private BitmapImage? _currentImageBitmap = null;
@@ -24,17 +26,33 @@ public partial class ImageSetDisplayVM : ObservableObject
         _displaySize = displaySize;
         _imageSetService = imageSetService;
 
-        _imageSetService.ImagePathsChanged += LoadCurrentImageBitmap;
+        _imageSetService.ImagePathsChanged += OnImagePathsChanged;
         _imageSetService.CurrentIndexChanged += LoadCurrentImageBitmap;
 
+        OnImagePathsChanged();
+    }
+
+    private void OnImagePathsChanged()
+    {
+        if (_imageSetService.ImagePaths is null)
+        {
+            CurrentImageBitmap = null;
+            DisplayActive = false;
+            return;
+        }
+
         LoadCurrentImageBitmap();
+        DisplayActive = true;
     }
 
     private void LoadCurrentImageBitmap()
     {
         int currentIndex = _imageSetService.CurrentIndex;
-        List<string> imagePaths = _imageSetService.ImagePaths;
-
+        List<string>? imagePaths = _imageSetService.ImagePaths;
+        if (imagePaths is null)
+        {
+            return;
+        }
         if (currentIndex < 0 || currentIndex > imagePaths.Count - 1)
         {
             return;

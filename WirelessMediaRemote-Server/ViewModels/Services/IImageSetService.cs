@@ -4,7 +4,7 @@ namespace ViewModels.Services;
 
 public interface IImageSetService
 {
-    List<string> ImagePaths { get; }
+    List<string>? ImagePaths { get; }
 
     int CurrentIndex { get; }
 

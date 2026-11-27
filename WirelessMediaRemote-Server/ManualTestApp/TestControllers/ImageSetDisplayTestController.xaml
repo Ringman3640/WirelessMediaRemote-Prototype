@@ -24,6 +24,13 @@
             <Separator Visibility="Hidden"
                        Height="20"/>
 
+            <Button x:Name="ClearImageSetButton"
+                    Height="30">
+                Clear Image Set
+            </Button>
+            <Separator Visibility="Hidden"
+                       Height="20"/>
+
             <Button x:Name="ChangeImageSetButton"
                     Height="30">
                 Change Image Set
