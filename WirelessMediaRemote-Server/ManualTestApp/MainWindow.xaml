@@ -18,6 +18,9 @@
             <Button x:Name="ImageSetDisplayTestButton">
                 ImageSetDisplay Test
             </Button>
+            <Button x:Name="VideoDisplayTestButton">
+                VideoDisplay Test
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="ManualTestApp.TestControllers.VideoDisplayTestController"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManualTestApp.TestControllers"
+        mc:Ignorable="d"
+        Title="VideoDisplayTestController" Height="140" Width="300">
+    <Grid>
+        <StackPanel Margin="20">
+            <Button x:Name="ChangeVideo"
+                Height="30"
+                Width="140">
+                Change Video
+            </Button>
+
+            <Separator Visibility="Hidden"
+                   Height="30"/>
+
+            <Slider x:Name="VideoSlider" Maximum="100"
+                    Width="Auto"
+                    Height="20"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,8 +1,8 @@
-﻿using System.Windows.Media;
+﻿using LibVLCSharp.Shared;
 
 namespace ViewModels.Services;
 
-internal interface IMediaPlayerService
+public interface IMediaPlayerService
 {
     public MediaPlayer Player { get; }
 }

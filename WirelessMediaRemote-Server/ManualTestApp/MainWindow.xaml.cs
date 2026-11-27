@@ -1,31 +1,25 @@
 ﻿using ManualTestApp.TestControllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace ManualTestApp
+namespace ManualTestApp;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            ImageSetDisplayTestButton.Click += (object sender, RoutedEventArgs e) =>
-            {
-                new ImageSetDisplayTestController().ShowDialog();
-            };
-        }
+        ImageSetDisplayTestButton.Click += (object sender, RoutedEventArgs e) =>
+        {
+            new ImageSetDisplayTestController().ShowDialog();
+        };
+
+        VideoDisplayTestButton.Click += (object sender, RoutedEventArgs e) =>
+        {
+            new VideoDisplayTestController().ShowDialog();
+        };
     }
 }
