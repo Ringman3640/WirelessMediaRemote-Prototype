@@ -17,13 +17,13 @@ public partial class ImageSetDisplayVM : ObservableObject
     [ObservableProperty]
     private bool _currentImageIsAnimated = false;
 
+    [ObservableProperty]
+    private Size _displaySize;
+
     private readonly IImageSetService _imageSetService;
 
-    private readonly Size _displaySize;
-
-    public ImageSetDisplayVM(Size displaySize, IImageSetService imageSetService)
+    public ImageSetDisplayVM(IImageSetService imageSetService)
     {
-        _displaySize = displaySize;
         _imageSetService = imageSetService;
 
         _imageSetService.ImagePathsChanged += OnImagePathsChanged;
@@ -76,7 +76,7 @@ public partial class ImageSetDisplayVM : ObservableObject
             BitmapImage bitmapImage = new();
             bitmapImage.BeginInit();
             bitmapImage.UriSource = new Uri(Path.GetFullPath(imagePath), UriKind.Absolute);
-            bitmapImage.DecodePixelHeight = (int)_displaySize.Height; // Just assume height for now; too fucking lazy to read whole ass image file just to get dimensions
+            bitmapImage.DecodePixelHeight = (int)DisplaySize.Height; // Just assume height for now; too fucking lazy to read whole ass image file just to get dimensions
             bitmapImage.EndInit();
             bitmapImage.Freeze();
             return bitmapImage;
