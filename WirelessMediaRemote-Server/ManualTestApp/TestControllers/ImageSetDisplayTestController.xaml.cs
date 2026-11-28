@@ -27,8 +27,8 @@ public partial class ImageSetDisplayTestController : Window
 
     public void OnLoad(object sender, RoutedEventArgs e)
     {
-        this.PrevImageButton.Click += (object sender, RoutedEventArgs e) => _imageSetServicer.CurrentIndex = Math.Max(0, _imageSetServicer.CurrentIndex - 1);
-        this.NextImageButton.Click += (object sender, RoutedEventArgs e) => _imageSetServicer.CurrentIndex = Math.Min(_imageSetServicer.ImagePaths.Count - 1, _imageSetServicer.CurrentIndex + 1);
+        this.PrevImageButton.Click += (object sender, RoutedEventArgs e) => _imageSetServicer.PrevIdx();
+        this.NextImageButton.Click += (object sender, RoutedEventArgs e) => _imageSetServicer.NextIdx();
 
         this.ClearImageSetButton.Click += (object sender, RoutedEventArgs e) => _imageSetServicer.ImagePaths = null;
         this.ChangeImageSetButton.Click += ChangeImageSet;

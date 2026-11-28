@@ -18,7 +18,8 @@ public partial class VideoDisplayTestController : Window
         this.Loaded += OnLoad;
 
         string startVideoPath = "./Resources/Test Videos/video1.mp4";
-        _playerServicer = new MediaPlayerServicer(startVideoPath);
+        _playerServicer = new MediaPlayerServicer();
+        _playerServicer.Play(startVideoPath);
     }
 
     public void OnLoad(object sender, RoutedEventArgs e)

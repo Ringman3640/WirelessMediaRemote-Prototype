@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManualTestApp.TestControllers"
         mc:Ignorable="d"
-        Title="MediaWindowTestController" Height="450" Width="800">
-    <Grid>
-        
+        Title="MediaWindowTestController" SizeToContent="WidthAndHeight">
+    <Grid Width="Auto" Height="Auto">
+        <StackPanel Margin="30">
+            <Button x:Name="SwitchToImageSetButton"
+                    Height="30">
+                Switch to Images Set
+            </Button>
+            <Separator Visibility="Hidden"
+                       Height="20"/>
+            
+            <StackPanel Orientation="Horizontal"
+                    Height="30">
+                <Button x:Name="PrevImageButton">
+                    Prev Image
+                </Button>
+
+                <Separator Visibility="Hidden"
+                       Width="40"/>
+
+                <Button x:Name="NextImageButton">
+                    Next Image
+                </Button>
+            </StackPanel>
+            
+            <Separator Visibility="Hidden"
+                   Height="60"/>
+
+            
+
+            <Button x:Name="SwitchToVideoButton"
+                Height="30">
+                Change to Video
+            </Button>
+            <Separator Visibility="Hidden"
+                   Height="20"/>
+
+            <Slider x:Name="VideoSlider" Maximum="100"
+                    Width="Auto"
+                    Height="20"/>
+        </StackPanel>
+
     </Grid>
 </Window>

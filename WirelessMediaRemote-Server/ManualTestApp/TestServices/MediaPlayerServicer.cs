@@ -26,12 +26,23 @@ internal class MediaPlayerServicer : IMediaPlayerService
 
     private bool _playerElementLoaded = false;
 
-    public MediaPlayerServicer(string startVideoPath)
+    private bool _playOnLoaded = false;
+
+    public MediaPlayerServicer()
     {
         _vlc = new LibVLC();
         Player = new MediaPlayer(_vlc);
-        using Media media = new(_vlc, startVideoPath, FromType.FromPath);
-        Player.Media = media;
+    }
+
+    public void Play(string videoPath)
+    {
+        Player?.Media = new Media(_vlc, videoPath, FromType.FromPath);
+        if (!_playerElementLoaded)
+        {
+            _playOnLoaded = true;
+            return;
+        }
+        Player?.Play();
     }
 
     public void OpenVideo()
@@ -55,7 +66,11 @@ internal class MediaPlayerServicer : IMediaPlayerService
     public void OnMediaPlayerElementLoaded()
     {
         _playerElementLoaded = true;
-        Player!.Play();
+        if (_playOnLoaded)
+        {
+            _player?.Play();
+            _playOnLoaded = false;
+        }
     }
 
     public void OnMediaPlayerElementUnloaded()

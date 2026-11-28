@@ -4,7 +4,7 @@ namespace ManualTestApp.TestServices;
 
 internal class ImageSetServicer : IImageSetService
 {
-    public List<string> ImagePaths
+    public List<string>? ImagePaths
     {
         get { return _imagePaths; }
         set
@@ -18,7 +18,7 @@ internal class ImageSetServicer : IImageSetService
             }
         }
     }
-    private List<string> _imagePaths = [];
+    private List<string>? _imagePaths = null;
 
     public int CurrentIndex
     {
@@ -31,6 +31,34 @@ internal class ImageSetServicer : IImageSetService
                 CurrentIndexChanged?.Invoke();
             }
         }
+    }
+
+    public void NextIdx()
+    {
+        if (ImagePaths is null)
+        {
+            return;
+        }
+        if (CurrentIndex >= ImagePaths.Count)
+        {
+            return;
+        }
+
+        ++CurrentIndex;
+    }
+
+    public void PrevIdx()
+    {
+        if (ImagePaths is null)
+        {
+            return;
+        }
+        if (CurrentIndex <= 0)
+        {
+            return;
+        }
+
+        --CurrentIndex;
     }
 
     private int _currentIndex = 0;
