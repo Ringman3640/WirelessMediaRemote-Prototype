@@ -13,6 +13,9 @@ public partial class VideoDisplayVM : ObservableObject
     [ObservableProperty]
     private MediaPlayer? _player;
 
+    [ObservableProperty]
+    private bool _playerElementLoaded = false;
+
     private readonly IMediaPlayerService _mediaPlayerService;
 
     public VideoDisplayVM(IMediaPlayerService mediaPlayerService)
@@ -21,18 +24,6 @@ public partial class VideoDisplayVM : ObservableObject
         _mediaPlayerService.PlayerChanged += OnPlayerChanged;
 
         OnPlayerChanged();
-    }
-
-    [RelayCommand]
-    private void PlayerElementLoaded()
-    {
-        _mediaPlayerService.OnMediaPlayerElementLoaded();
-    }
-
-    [RelayCommand]
-    public void PlayerElementUnloaded()
-    {
-        _mediaPlayerService.OnMediaPlayerElementUnloaded();
     }
 
     private void OnPlayerChanged()
@@ -47,4 +38,15 @@ public partial class VideoDisplayVM : ObservableObject
         Player = _mediaPlayerService.Player;
     }
 
+    partial void OnPlayerElementLoadedChanged(bool value)
+    {
+        if (PlayerElementLoaded)
+        {
+            _mediaPlayerService.OnMediaPlayerElementLoaded();
+        }
+        else
+        {
+            _mediaPlayerService.OnMediaPlayerElementUnloaded();
+        }
+    }
 }
