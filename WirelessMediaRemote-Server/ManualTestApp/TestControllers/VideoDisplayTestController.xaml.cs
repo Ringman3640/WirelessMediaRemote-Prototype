@@ -38,21 +38,38 @@ public partial class VideoDisplayTestController : Window
         var slider = this.VideoSlider;
         double sliderPercent = slider.Value / slider.Maximum;
 
-        MediaPlayer player = _playerServicer.Player;
-        player.Time = (long)(player.Length * sliderPercent);
+        MediaPlayer? player = _playerServicer.Player;
+        player?.Time = (long)(player.Length * sliderPercent);
     }
 
     private class MediaPlayerService : IMediaPlayerService
     {
-        public MediaPlayer Player { get; }
+        public MediaPlayer? Player
+        {
+            get { return _player; }
+            set
+            {
+                if (value != _player)
+                {
+                    _player = value;
+                    PlayerChanged?.Invoke();
+                }
+            }
+        }
+        private MediaPlayer? _player;
 
-        private LibVLC vlc;
+        public event Action? PlayerChanged;
+
+        private LibVLC _vlc;
+
+        private bool _playerElementLoaded = false;
 
         public MediaPlayerService(string startVideoPath)
         {
-            vlc = new LibVLC();
-            Player = new MediaPlayer(vlc);
-            SetVideo(startVideoPath);
+            _vlc = new LibVLC();
+            Player = new MediaPlayer(_vlc);
+            using Media media = new(_vlc, startVideoPath, FromType.FromPath);
+            Player.Media = media;
         }
 
         public void OpenVideo()
@@ -64,14 +81,25 @@ public partial class VideoDisplayTestController : Window
 
             if (dialog.ShowDialog() == true)
             {
-                SetVideo(dialog.FileName);
+                using Media media = new(_vlc, dialog.FileName, FromType.FromPath);
+                Player!.Media = media;
+                if (_playerElementLoaded)
+                {
+                    Player!.Play();
+                }
             }
         }
 
-        private void SetVideo(string videoPath)
+        public void OnMediaPlayerElementLoaded()
         {
-            using Media newMedia = new(vlc!, videoPath, FromType.FromPath);
-            Player!.Play(newMedia);
+            _playerElementLoaded = true;
+            Player!.Play();
+        }
+
+        public void OnMediaPlayerElementUnloaded()
+        {
+            _playerElementLoaded = false;
+            Player!.Stop();
         }
     }
 }
