@@ -1,8 +1,7 @@
 ﻿using LibVLCSharp.Shared;
+using ManualTestApp.TestServices;
 using ManualTestApp.TestWindows;
-using Microsoft.Win32;
 using System.Windows;
-using ViewModels.Services;
 
 namespace ManualTestApp.TestControllers;
 
@@ -11,7 +10,7 @@ namespace ManualTestApp.TestControllers;
 /// </summary>
 public partial class VideoDisplayTestController : Window
 {
-    private MediaPlayerService _playerServicer;
+    private MediaPlayerServicer _playerServicer;
 
     public VideoDisplayTestController()
     {
@@ -19,7 +18,7 @@ public partial class VideoDisplayTestController : Window
         this.Loaded += OnLoad;
 
         string startVideoPath = "./Resources/Test Videos/video1.mp4";
-        _playerServicer = new MediaPlayerService(startVideoPath);
+        _playerServicer = new MediaPlayerServicer(startVideoPath);
     }
 
     public void OnLoad(object sender, RoutedEventArgs e)
@@ -40,66 +39,5 @@ public partial class VideoDisplayTestController : Window
 
         MediaPlayer? player = _playerServicer.Player;
         player?.Time = (long)(player.Length * sliderPercent);
-    }
-
-    private class MediaPlayerService : IMediaPlayerService
-    {
-        public MediaPlayer? Player
-        {
-            get { return _player; }
-            set
-            {
-                if (value != _player)
-                {
-                    _player = value;
-                    PlayerChanged?.Invoke();
-                }
-            }
-        }
-        private MediaPlayer? _player;
-
-        public event Action? PlayerChanged;
-
-        private LibVLC _vlc;
-
-        private bool _playerElementLoaded = false;
-
-        public MediaPlayerService(string startVideoPath)
-        {
-            _vlc = new LibVLC();
-            Player = new MediaPlayer(_vlc);
-            using Media media = new(_vlc, startVideoPath, FromType.FromPath);
-            Player.Media = media;
-        }
-
-        public void OpenVideo()
-        {
-            OpenFileDialog dialog = new()
-            {
-                Filter = "Video files|*.mp4;*.mkv;*.avi;*.mov;*.wmv|All files|*.*"
-            };
-
-            if (dialog.ShowDialog() == true)
-            {
-                using Media media = new(_vlc, dialog.FileName, FromType.FromPath);
-                Player!.Media = media;
-                if (_playerElementLoaded)
-                {
-                    Player!.Play();
-                }
-            }
-        }
-
-        public void OnMediaPlayerElementLoaded()
-        {
-            _playerElementLoaded = true;
-            Player!.Play();
-        }
-
-        public void OnMediaPlayerElementUnloaded()
-        {
-            _playerElementLoaded = false;
-            Player!.Stop();
-        }
     }
 }
