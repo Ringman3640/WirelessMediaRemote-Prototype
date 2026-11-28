@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xaml.Behaviors;
 using System.Windows;
 
-namespace Wpf.AttachedProperties;
+namespace Wpf.AttachedBehaviors;
 
 internal class LoadedState : Behavior<FrameworkElement>
 {
