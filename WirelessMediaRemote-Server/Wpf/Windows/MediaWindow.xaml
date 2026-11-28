@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Windows"
+        xmlns:local.uc="clr-namespace:Wpf.UserControls"
+        xmlns:vm.win="clr-namespace:ViewModels.Windows;assembly=ViewModels"
         mc:Ignorable="d"
         Title="Media Window" Height="450" Width="800"
-        WindowState="Maximized" WindowStyle="None">
+        WindowState="Maximized" WindowStyle="None"
+        d:DataContext="{d:DesignInstance Type=vm.win:MediaWindowVM}">
     <Grid>
-        
+        <local.uc:ImageSetDisplay DataContext="{Binding ImageSetDisplayDataContext}"/>
+        <local.uc:VideoDisplay DataContext="{Binding VideoDisplayDataContext}"/>
     </Grid>
 </Window>

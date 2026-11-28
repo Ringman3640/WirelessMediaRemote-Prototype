@@ -13,6 +13,10 @@ internal class MediaPlayerServicer : IMediaPlayerService
         {
             if (value != _player)
             {
+                if (value is null)
+                {
+                    _player?.Stop();
+                }
                 _player = value;
                 PlayerChanged?.Invoke();
             }
