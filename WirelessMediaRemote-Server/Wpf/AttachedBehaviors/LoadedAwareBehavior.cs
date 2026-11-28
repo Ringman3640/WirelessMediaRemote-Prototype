@@ -5,19 +5,25 @@ namespace Wpf.AttachedBehaviors;
 
 internal class LoadedAwareBehavior : Behavior<FrameworkElement>
 {
-    public static readonly DependencyProperty LoadedStateProperty = DependencyProperty.RegisterAttached(
-        name: "LoadedState",
+    public static readonly DependencyProperty IsLoadedProperty = DependencyProperty.RegisterAttached(
+        name: "IsLoaded",
         propertyType: typeof(bool),
         ownerType: typeof(LoadedAwareBehavior),
         defaultMetadata: new PropertyMetadata(defaultValue: false)
     );
+
+    public bool IsLoaded
+    {
+        get { return (bool)GetValue(IsLoadedProperty); }
+        set { SetValue(IsLoadedProperty, value); }
+    }
 
     protected override void OnAttached()
     {
         AssociatedObject.Loaded += OnAttachedObjectLoaded;
         AssociatedObject.Unloaded += OnAttachedObjectUnloaded;
 
-        SetValue(LoadedStateProperty, AssociatedObject.IsLoaded);
+        IsLoaded = AssociatedObject.IsLoaded;
     }
 
     protected override void OnDetaching()
@@ -28,11 +34,11 @@ internal class LoadedAwareBehavior : Behavior<FrameworkElement>
 
     private void OnAttachedObjectLoaded(object sender, RoutedEventArgs e)
     {
-        SetValue(LoadedStateProperty, true);
+        IsLoaded = true;
     }
 
     private void OnAttachedObjectUnloaded(object sender, RoutedEventArgs e)
     {
-        SetValue(LoadedStateProperty, false);
+        IsLoaded = false;
     }
 }
