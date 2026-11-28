@@ -3,12 +3,12 @@ using System.Windows;
 
 namespace Wpf.AttachedBehaviors;
 
-internal class LoadedState : Behavior<FrameworkElement>
+internal class LoadedAwareBehavior : Behavior<FrameworkElement>
 {
     public static readonly DependencyProperty LoadedStateProperty = DependencyProperty.RegisterAttached(
         name: "LoadedState",
         propertyType: typeof(bool),
-        ownerType: typeof(LoadedState),
+        ownerType: typeof(LoadedAwareBehavior),
         defaultMetadata: new PropertyMetadata(defaultValue: false)
     );
 
