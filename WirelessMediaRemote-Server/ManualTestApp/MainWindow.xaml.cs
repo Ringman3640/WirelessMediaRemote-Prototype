@@ -21,5 +21,10 @@ public partial class MainWindow : Window
         {
             new VideoDisplayTestController().ShowDialog();
         };
+
+        MediaWindowTestButton.Click += (object sender, RoutedEventArgs e) =>
+        {
+            new MediaWindowTestController().ShowDialog();
+        };
     }
 }

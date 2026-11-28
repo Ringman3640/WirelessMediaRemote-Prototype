@@ -21,6 +21,9 @@
             <Button x:Name="VideoDisplayTestButton">
                 VideoDisplay Test
             </Button>
+            <Button x:Name="MediaWindowTestButton">
+                MediaWindow Test
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
