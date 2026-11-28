@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManualTestApp.TestControllers"
         mc:Ignorable="d"
-        Title="VideoDisplayTestController" Height="140" Width="300">
+        Title="VideoDisplayTestController" Height="180" Width="300">
     <Grid>
         <StackPanel Margin="20">
             <Button x:Name="ChangeVideo"
